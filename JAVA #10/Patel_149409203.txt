@@ -1,0 +1,26 @@
+/**********************************************
+Workshop 10
+Course:JAC444 - Semester 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: VedPatel
+Date: 08/05/2022
+**********************************************/
+
+What I learn from the workshop:
+This workshop contained mix concepts of Java and it was similar to the past workshops.
+In task1,  I learned how to use "cloneable and use comparable<Time>". I also learn how can we convert any time given in hours and minutes into seconds or given in seconds into hours and minutes.
+task2 was quite challanging to me as we were asked to find unsafe banks using given details.
+Overall, this workshop was fun and full of learning.
+
+The instructions on how to run code:
+
+1)	Open Eclipse IDE and select create a new Java project
+2)	Create a project named "workshop10". 
+3)	In the src (source) file add the package called "work".
+4)	Right-click the "work" package and new classes.
+5)	Start implementing the code. Once you are done, click on the "Run" button on the top and select "Run" to run the code or you can simply press "Ctrl + F11" to run the code.
+6)	After running the code, you will get output in the console.

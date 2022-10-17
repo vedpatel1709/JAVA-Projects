@@ -1,0 +1,179 @@
+/**********************************************
+Workshop 2
+Course:JAC444 - Semester 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: JAC444 NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date:3rd June, 2022
+**********************************************/
+package ws;
+
+import java.util.Scanner;
+
+public class TestClass {
+
+	public static void main(String[] args) {		// beginning main method 
+
+	    Scanner scan = new Scanner(System.in);		// 		creating a new Scanner instance which points to the input stream passed as argument.
+	    int choice;
+
+	    do {                // Will loop until expected value is entered
+	      System.out.println("Select Canadian federal income Tax:  \n");
+	      System.out.println("1. Compute personal income Tax");
+	      System.out.println("2. Print the tax tables for taxable incomes (with range)");
+	      System.out.println("3. Exit\n");
+	      System.out.print("Enter your Choice: ");
+	      choice = scan.nextInt();
+	      System.out.println("");
+	      
+	      if(choice==1) {
+	    	  Choice_1(scan);       // method choice_1 is called
+	      }
+	      else if(choice==2) {
+	    	  Choice_2(scan);       // method choice_2 is called
+	      }
+	      else if(choice==3){
+	    	  System.out.println("Exiting!!! Thank You");
+	      }
+	      else {
+	          System.out.println("Invalid Selection, Please try again\n\n");
+	      }
+	    } while (choice != 3);
+	    scan.close();
+
+	  }
+
+	  public static void Choice_1(Scanner input) {
+
+		    IncomeTax TaxObject = new IncomeTax();      // creating instance of IncomeTax class
+		    System.out.println("Enter Your Married Status:");
+
+		    System.out.println("0 - single filer");
+		    System.out.println("1 - married jointly or qualifying widow(er)");
+		    System.out.println("2 - married separately");
+		    System.out.println("3 - head of household\n");
+		    System.out.print("Enter the filing status: ");
+		    int choice = input.nextInt();
+		    
+		    if(choice!=1 && choice !=2 && choice !=3 && choice != 0) {
+		    
+		    do {        // will loop until condition is satisfied
+		    	System.out.print("Error!! Enter Valid Status: ");
+		    	choice=input.nextInt();
+		    	
+		    }while(choice != 1 && choice != 2 && choice != 3 && choice != 0);
+		    }
+		    
+		    System.out.println(" ");
+		    System.out.print("Enter the Taxable Income: $");
+		    int amount = input.nextInt();
+		    System.out.print("\n");
+
+		    if (choice == 0) {
+		      TaxObject.setFilingStatus(IncomeTax.SINGLE_FILER);
+		      TaxObject.setTaxableIncome(amount);
+		      System.out.printf("Tax is: $%.2f\n\n", TaxObject.getIncomeTax());
+		    } 
+		    else if (choice == 1) {
+		      TaxObject.setFilingStatus(IncomeTax.MARRIED_JOINTLY_OR_QUALIFYING_WIDOWER);
+		      TaxObject.setTaxableIncome(amount);
+		      System.out.printf("Tax is: $%.2f\n\n", TaxObject.getIncomeTax());
+		    } 
+		    else if (choice == 2) {
+		      TaxObject.setFilingStatus(IncomeTax.MARRIED_SEPARATELY);
+		      TaxObject.setTaxableIncome(amount);
+		      System.out.printf("Tax is: $%.2f\n\n", TaxObject.getIncomeTax());
+		    } 
+		    else if (choice == 3) {
+		      TaxObject.setFilingStatus(IncomeTax.HEAD_OF_HOUSEHOLD);
+		      TaxObject.setTaxableIncome(amount);
+		      System.out.printf("Tax is: $%.2f\n\n", TaxObject.getIncomeTax());
+		    } 
+		    else {
+		      System.out.println("Please enter valid number!!");
+		      System.out.print("\n\n");
+		    }
+		  }
+
+		  //function for computing the option 2
+		public static void Choice_2(Scanner input) {
+
+		    IncomeTax TaxObj = new IncomeTax();     // creating instance of IncomeTax class
+		    
+		    int[][] Intervals2001 = {
+		  	      { // Single filer
+		  	        27050, 65550, 136750, 297350
+		  	      }, 
+		  	      { // Married jointly
+		  	        45200, 109250, 166500, 297350
+		  	      }, 
+		  	      { // Married separately
+		  	        22600, 54625, 83250, 148675
+		  	      }, 
+		  	      { // Head of household
+		  	        36250, 93650, 151650, 297350
+		  	      }
+		  	    }; 
+		    
+		    double[] Tax2001 = {
+		  	      15, 27.5, 30.5, 35.5, 39.1
+		  	    };
+
+		    TaxObj.setRates(Tax2001);
+		    TaxObj.setIntervals(Intervals2001);
+
+		    IncomeTax tax2009 = new IncomeTax();       // Tax 2009 object
+
+	        // creating two double variable to get the range of income
+		    double INCOME_FROM = 0;
+		    double INCOME_TO = 0;
+
+		    final double INCOME_INTERVAL = 1000;
+		    System.out.println("Enter the amount From:");
+		    INCOME_FROM = input.nextInt();
+		    System.out.println("Enter the amount To: ");
+		    INCOME_TO = input.nextInt();
+		    System.out.print("\n");
+
+		    System.out.println("2001 tax tables for taxable income from " + INCOME_FROM + " to " + INCOME_TO);      // 2001 tax table
+		    System.out.println("");
+		    DisplayTable(TaxObj, INCOME_FROM, INCOME_TO, INCOME_INTERVAL);
+		   
+		    System.out.println("");
+		    System.out.println("2009 tax tables for taxable income from " + INCOME_FROM + " to " + INCOME_TO);      // 2009 tax table
+		    System.out.println("");
+		    DisplayTable(tax2009, INCOME_FROM, INCOME_TO, INCOME_INTERVAL);
+		    
+		    System.out.print("\n");
+		  }
+		  
+	      //method to display the table
+		  public static void DisplayTable(IncomeTax Tax, double IncomeFrom, double IncomeTo, double IncomeInterval) {
+
+			  	System.out.println("---------------------------------------------------------------------------------------------");
+			  	System.out.println("Income          " + "Single    " + "     Married jointly        " + " Married         " + "Head of House");
+			  	System.out.println("                               Qualifying Widow       separately          Hold");
+			  	System.out.println("---------------------------------------------------------------------------------------------");
+
+			  	for (double taxIncome = IncomeFrom; taxIncome<= IncomeTo; taxIncome += IncomeInterval) {
+
+			  		Tax.setTaxableIncome(taxIncome);
+			  		System.out.printf("%-13.0f", taxIncome);
+
+			  		Tax.setFilingStatus(IncomeTax.SINGLE_FILER);
+			  		System.out.printf("%10.2f", Tax.getIncomeTax());
+
+			  		Tax.setFilingStatus(IncomeTax.MARRIED_JOINTLY_OR_QUALIFYING_WIDOWER);
+			  		System.out.printf("%19.2f", Tax.getIncomeTax());
+
+			  		Tax.setFilingStatus(IncomeTax.MARRIED_SEPARATELY);
+			  		System.out.printf("%19.2f", Tax.getIncomeTax());
+
+			  		Tax.setFilingStatus(IncomeTax.HEAD_OF_HOUSEHOLD);
+			  		System.out.printf("%19.2f\n", Tax.getIncomeTax());
+			  	}
+		  }
+}

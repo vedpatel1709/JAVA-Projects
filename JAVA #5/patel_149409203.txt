@@ -1,0 +1,28 @@
+/**********************************************
+Workshop 5
+Course: JAC444 - 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: Ved Patel
+Date: 25th June 2022
+**********************************************/
+
+What I learn from the workshop:
+
+In this workshop, I learned different things such as accessing RandomAccessFile, JavaFx, FileOutputStream and Buffered Readers.
+But mainly this workshop did target on JavaFx concepts. At my first attempt it was realy hard to create project with JavaFx and adding new paths to project.
+I did learn how to create button, textfield, Flowpane and Hbox. Furthermore, I was really hard to assign size/width to given textwidths or 
+Overall, it was good learning for me and it was fun to use JavaFx.
+
+The instructions on how to run code:
+
+1)	Open Eclipse IDE and select create a new Java project
+2)  	Create new project named "workshop5" and select JavaFX option.
+3)	Include .Jar files given by professor in .zip file to run javaFx module.
+4)	In the src (source) file add the package called application and add paths of lib and bin directory according to the instructions.
+5)	Right-click the application package and new classes.
+6)	Start implementing the code. Once you are done, click on the "Run" button on the top and select "Run" to run the code or you can simply press "Ctrl + F11" to run the code.
+7)	After running the code, you will get your expected output.

@@ -1,0 +1,86 @@
+package work;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Task1{
+
+    public static void Hangman() throws FileNotFoundException{
+
+        Scanner userInput = new Scanner(System.in);
+        String playAgain;
+
+        do {
+        	 boolean index;
+        	 
+            // Generate a random word
+            char[] word;            
+            // Create File object
+            File file;
+            File file1 = new File("hangman.txt");
+
+            // Check if file exists
+            if (!file1.exists()) {
+                System.out.print("File \"" + file1.getName() + "\" does not exist");
+                System.exit(1);
+            }
+            //  Return File object
+            file = file1;
+
+            // Create an ArrayList
+            ArrayList<String> words = new ArrayList<>();
+           
+           // Create input file
+               Scanner input = new Scanner(file);
+                while (input.hasNext()) {
+                    words.add(input.next());
+             }            
+
+            // Pick a random string
+            String pick = words.get((int)(Math.random() * words.size()));
+            word= pick.toCharArray();
+
+            // Display each letter in the word as an asterisk.
+            char[] asterisks = new char[word.length];
+            Arrays.fill(asterisks, '*');
+
+            // number of wrong guesses
+            int missed = 0;
+
+            do {
+                // Prompt the user to guess one letter
+                char guess;
+                
+                try (Scanner userInput1 = new Scanner(System.in)) {
+        			// ask user
+        			System.out.print("(Guess) Enter a letter in word ");
+        			System.out.print(asterisks);
+        			System.out.print(" > ");
+        			
+        			String guess1 = userInput1.next();
+        			guess= guess1.charAt(0);
+
+                // Check if is letter is correct
+                if (!isCorrectGuess(word, asterisks, guess))
+                    missed++;
+                
+                for (char e: asterisks) {
+                    if (e == '*')
+                        index =false;
+                }
+                index = true;
+
+            } while (index);
+
+            // Print results
+            //wordExist(word, missed);
+
+            // Ask the user whether to continue to play with another word
+            System.out.print("\nDo you want to guess another word? Enter y or n>");
+            playAgain = userInput.next();
+
+            System.out.println();
+        } while (playAgain.charAt(0) == 'y');
+        }

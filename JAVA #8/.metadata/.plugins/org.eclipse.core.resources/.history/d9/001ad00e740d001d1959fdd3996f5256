@@ -1,0 +1,106 @@
+package work;
+
+import java.util.Date;
+import java.util.Random;
+
+public class additionMatrix {
+
+	// Creating two Matrixes
+	static double MtrxOne[][] = new double[2000][2000];
+	static double MtrxTwo[][] = new double[2000][2000];
+		
+	// Matrix values
+	static double minNumber = 1;
+	static double maxNumber = 2000;
+	static Random Rndm = new Random();
+
+	// parallelAddMatrix
+	public static double[][] parallelAddMatrix(double[][] a, double[][] b) throws InterruptedException {
+		double parallelMatrix[][] = new double[2000][2000];
+		
+		// Thread #1
+		Thread t1 = new Thread() {
+			public void run() {
+				for (int i = 0; i<500; i++) {
+					for (int j = 0; j<500; j++) {
+						parallelMatrix[i][j] = a[i][j] + b[i][j];
+					}
+				}
+
+			}
+		};
+		
+		Thread t2 = new Thread() {
+			public void run() {
+				for (int i = 501; i<1000; i++) {
+					for (int j = 501; j<1000; j++) {
+						parallelMatrix[i][j] = a[i][j] + b[i][j];
+					}
+				}
+			}
+		};
+		
+		Thread t3 = new Thread() {
+			public void run() {
+				for (int i = 1001; i<1500; i++) {
+					for (int j = 1001; j<1500; j++) {
+						parallelMatrix[i][j] = a[i][j] + b[i][j];
+					}
+				}
+			}
+		};
+		
+		Thread t4 = new Thread() {
+			public void run() {
+				for (int i = 1501; i<2000; i++) {
+					for (int j = 1501; j<2000; j++) {
+						parallelMatrix[i][j] = a[i][j] + b[i][j];
+					}
+				}
+			}
+		};
+
+		t1.start();
+		t1.join();
+		t2.start();
+		t2.join();
+		t3.start();
+		t3.join();
+		t4.start();
+		t4.join();
+		return parallelMatrix;
+
+	}
+
+	public static double[][] sequentialAddMatrix(double[][] c, double[][] d) {
+		double sequentialMatrix[][] = new double[2000][2000];
+
+		for (int i = 0; i<2000; i++) {
+			for (int j = 0; j<2000; j++) {
+				sequentialMatrix[i][j] = c[i][j] + d[i][j];
+			}
+		}
+		return sequentialMatrix;
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+
+		for (int i = 0; i<2000; i++) {
+			for (int j = 0; j<2000; j++) {
+				MtrxOne[i][j] = Math.round((Rndm.nextDouble() * (maxNumber - minNumber)) * 100);
+				MtrxTwo[i][j] = Math.round((Rndm.nextDouble() * (maxNumber - minNumber)) * 100);
+			}
+		}
+
+		Date StartSq = new Date();
+		double mtrx1[][] = sequentialAddMatrix(MtrxOne, MtrxTwo);
+		Date EndSq = new Date();
+		System.out.println("Sequential addition time in miliseconds: " + (EndSq.getTime() - StartSq.getTime()));
+
+		Date StartPrl = new Date();
+		double mtrx2[][] = parallelAddMatrix(MtrxOne, MtrxTwo);
+		Date EndPrl = new Date();
+		System.out.println("Parallel addition time in miliseconds: " + (EndPrl.getTime() - StartPrl.getTime()));
+	}
+
+}

@@ -1,0 +1,34 @@
+/**********************************************
+Workshop 2
+Course:JAC444 - Semester 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: JAC444 NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date:3rd June, 2022
+**********************************************/
+
+What I learn from the workshop:
+In this workshop2, I learned concepts of methods, arrays, and classes. I learned how can we create multiple classes to make code more understandable. 
+In addition, I did learn about creating instances of classes, by doing these we can have access to classes’ data members.
+
+I found the getters and setters part most interesting and easy. In that part, we just need to return or assign data members according to the type and arguments.
+
+In IncomeTax class, the method of getIncomeTax() was the hardest and most confusing part for me, especially algorithms.
+Furthermore, using so many loops was also quite tricky for me. I used loops to print out arrays and to take valid input from users. 
+
+Mainly, I did learn how to divide code into small methods and call each method when needed. I created choice_1, choice_2, and DisplayTable() methods.
+
+Overall, this workshop was fun and full of learning especially creating instances of classes. 
+
+
+
+The Instructions on how to run code:
+
+1)	Open Eclipse IDE and select create a new Java project
+2)	Create a project named "workshop2" and in the src (source) file add the package called "ws".
+3)	Right-click the "ws" package and add two new class and name it "IncomeTax" and "TestClass".
+4)	Start implementing the code. Once you are done, click on the "Run" button on the top and select "Run" to run the code or you can simply press "Ctrl + F11" to run the code.
+5)	After running the code, you will get output in console.

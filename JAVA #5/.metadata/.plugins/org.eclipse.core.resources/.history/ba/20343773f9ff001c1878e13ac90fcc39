@@ -1,0 +1,99 @@
+/**********************************************
+Workshop 6
+Course JAC444 NEE- 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: vedPatel
+Date: 07/08/2022
+**********************************************/
+package Task2;
+
+import java.util.Scanner;
+class TestClass {
+
+	// method to calculate sum of the array
+	public static final ArrayProcessor SumOfArray = array -> {
+		double sum = 0;
+		for (int i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
+		return sum;
+	};
+
+	// method to calculate average of values in the array;
+	public static final ArrayProcessor AvgOfArray = array -> {
+		double avg = 0;
+		avg = SumOfArray.apply(array) / array.length;
+		return avg;
+	};
+
+	// method to calculate maximum value in array
+	public static final ArrayProcessor MaxValue = array -> {
+		double max = array[0];
+		for (int i = 0; i < array.length; i++) {
+			if (max < array[i])
+			{
+				max = array[i];
+			}
+		}
+		return max;
+	};
+	
+	// method to calculate minimum value in array
+	public static final ArrayProcessor MinValue = array -> {
+		double min = array[0];
+		for (int i = 0; i < array.length; i++) {
+			if (min > array[i])
+			{
+				min = array[i];
+			}
+		}
+		return min;
+	};
+
+	// method to count indexes of value in array
+	public static ArrayProcessor counter(double value) {
+		return array -> {
+			int count = 0;
+			for (int i = 0; i < array.length; i++) {
+				if (array[i] == value)
+				{
+					count++;
+				}
+			}
+			return count;
+		};
+	}
+	
+	// Main method
+public static void main(String[] args) {
+		Scanner input= new Scanner(System.in);
+        
+        double[] arr1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1.1, 1.1, 23.0, 24.1, 90.9, 78.9, 56, 1, 2, 1, 1, 1, 780.7, 56.7, 10, 89, 67 };
+        
+        System.out.println("Array List: ");
+        for(int i=0; i< arr1.length; i++) {        	
+        	System.out.print(arr1[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Sum of array list	: " + String.format("%7.2f", SumOfArray.apply(arr1)));
+        System.out.println("Average of array list	: " + String.format("%7.2f", AvgOfArray.apply(arr1)));
+        System.out.println("Minimum of array list	: " + String.format("%7.2f", MinValue.apply(arr1)));
+        System.out.println("Maximum of array list	: " + String.format("%7.2f", MaxValue.apply(arr1)));
+        System.out.println();
+        
+        System.out.print("Enter value that to count occurences in array : ");
+        double count = 0;
+        count = input.nextDouble();
+        System.out.println("Count of count in list	: " + counter(count).apply(arr1) );
+        
+        System.out.print("Enter value that to count occurences in array : ");
+        double count1 = 0;
+        count1 = input.nextDouble();
+        System.out.println("Count of count in list	: " + counter(count1).apply(arr1) );
+        
+    }
+}

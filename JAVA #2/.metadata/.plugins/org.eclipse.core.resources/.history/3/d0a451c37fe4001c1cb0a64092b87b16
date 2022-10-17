@@ -1,0 +1,110 @@
+/**********************************************
+Workshop 2
+Course:JAC444 - Semester 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: JAC444 NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date:3rd June, 2022
+**********************************************/
+
+package ws;
+
+public class IncomeTax {	// IncomeTax class
+  int filingStatus;
+
+  public static final int SINGLE_FILER = 0;
+  public static final int MARRIED_JOINTLY_OR_QUALIFYING_WIDOWER = 1;
+  public static final int MARRIED_SEPARATELY = 2;
+  public static final int HEAD_OF_HOUSEHOLD = 3;
+
+  public int[][] intervals;
+
+  double[] rates;
+
+  double taxableIncome;
+
+  // Getters and Setters
+  public int getFilingStatus() {
+    return filingStatus;
+  }
+  public void setFilingStatus(int filingStatus) {
+    this.filingStatus = filingStatus;
+  }
+  
+  public int[][] getIntervals() {
+    return intervals;
+  }
+  public void setIntervals(int[][] intervals) {
+    this.intervals = intervals;
+  }
+  
+  public double[] getRates() {
+    return rates;
+  }
+  public void setRates(double[] rates) {
+    this.rates = rates;
+  }
+
+  public double getTaxableIncome() {
+    return taxableIncome;
+  }
+  public void setTaxableIncome(double taxableIncome) {
+    this.taxableIncome = taxableIncome;
+  }
+
+  	// 2009 and 2001 Canada federal personal tax rates
+  double[] Tax2009 = {
+	      10, 15, 25, 28, 33, 35
+	    };
+  
+	 // 2009 and 2001 Canada federal personal tax intervals
+  int[][] Intervals2009 = {
+		  { // Single filer
+	        8350, 33950, 82250, 171550, 372950
+	      },
+	      { // Married jointly
+	        16700, 67900, 137050, 20885, 372950
+	      }, 
+	      { // Married separately
+	        8350, 33950, 68525, 104425, 186475
+	      },
+	      { //Head of household
+	        11950, 45500, 117450, 190200, 372950
+	      }
+	    };
+  
+ 
+
+  IncomeTax() {		// No argument constructor
+    setRates(Tax2009);
+    setIntervals(Intervals2009);
+    taxableIncome = 0;
+  }
+
+  // Parameterized  Constructor
+  IncomeTax(int filingStatus, int[][] intervals, double[] rates, double taxableIncome) {
+    setFilingStatus(filingStatus);
+    setIntervals(intervals);
+    setRates(rates);
+    setTaxableIncome(taxableIncome);
+  }
+ 
+  public double getIncomeTax() {	// method getIncomeTax to calculate and return the tax
+	  double TaxAble = taxableIncome;
+	  double Tax = 0;
+	  double TaxIncome;
+	  
+	  Tax += intervals[filingStatus][0] * rates[0];
+		for (int i = rates.length - 2; i >= 0; i--) {
+			if (TaxAble > intervals[filingStatus][i]) {
+				TaxIncome = TaxAble - intervals[filingStatus][i];
+				Tax += TaxIncome * rates[i + 1];
+				TaxAble -= TaxIncome;
+			}
+		}
+		return Tax/100;
+  }
+}

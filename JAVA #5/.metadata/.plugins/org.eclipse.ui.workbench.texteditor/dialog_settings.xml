@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="countArray"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="counter"/>
+			<item value="AvgOfArray"/>
+			<item value="SumOfArray"/>
+			<item value="total"/>
+			<item value="minValue"/>
+			<item value="maxValue"/>
+			<item value="avarageArray"/>
+			<item value="sumArray"/>
+			<item value="secondList"/>
+			<item value="firstList"/>
+			<item value="filename"/>
+			<item value="result"/>
+			<item value="queryScene"/>
+			<item value="exitBtn"/>
+			<item value="submitQueryBtn"/>
+		</list>
+		<list key="replacehistory">
+			<item value="countArray"/>
+			<item value="AvgArray"/>
+			<item value="SumArray"/>
+			<item value="sum"/>
+			<item value="MinValue"/>
+			<item value="MaxValue"/>
+			<item value="AvgOfArray"/>
+			<item value="SumOfArray"/>
+			<item value="arr2"/>
+			<item value="arr1"/>
+			<item value="FileName"/>
+			<item value="str"/>
+			<item value="newScene"/>
+			<item value="ExitBTN"/>
+			<item value="SubmitBTN"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1352"/>
+		<item key="DIALOG_Y_ORIGIN" value="78"/>
+		<item key="DIALOG_WIDTH" value="511"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

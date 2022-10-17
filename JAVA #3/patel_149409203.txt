@@ -1,0 +1,30 @@
+/**********************************************
+Workshop 3
+Course: JAC444 - 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: Ved Patel
+Date: 9th June 2022
+**********************************************/
+
+What I learn from the workshop:
+
+I learned new concepts regarding inheritance, polymorphism, and exceptional handling in this workshop. For Triangle and TriangleT2, I inherited the abstract class “GeometricObject”.
+In addition, I learned how to use the overloading and overriding of given methods.
+A TriangleException class was added to task2 to test whether or not the triangle violates the rule. A TriangleException error will be thrown if the triangle violates the rule.
+A try-catch statement is implemented in the main function. I learned how the “Try” statement allows us to define a block of code to be tested for errors while it is being executed and 
+how the “catch” statement allows us to define a block of code to be executed if any error happens in the “Try” block.
+Overall, this workshop was fun and full of learning.
+
+The instructions on how to run code:
+
+1)	Open Eclipse IDE and select create a new Java project
+2)	Create a project named "ws3" and in the src (source) file add the package called "Task".
+3)	Right-click the "Task" package and new classes.
+4)	Start implementing the code. Once you are done, click on the "Run" button on the top and select "Run" to run the code or you can simply press "Ctrl + F11" to run the code.
+5)	After running the code, you will get output in the console.
+
+

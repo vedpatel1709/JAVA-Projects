@@ -1,0 +1,60 @@
+package work;
+
+public class Time implements Cloneable, Comparable < Time > {
+
+  //1
+  private long TimeElapsed;
+
+  //2
+  public Time() {
+    TimeElapsed = System.currentTimeMillis() / 1000;
+  }
+
+  //3
+  public Time(int Hour, int Minute, int Second) {
+    TimeElapsed = (((Hour * 60) + Minute) * 60) + Second;
+  }
+
+  //4
+  public Time(long tempTime) {
+    this.TimeElapsed = tempTime;
+  }
+
+  //5
+  public int getHour() {
+    return (int)(TimeElapsed / 3600);
+  }
+
+  //6
+  public int getMinute() {
+    return (int)(TimeElapsed - (getHour() * 3600)) / 60;
+  }
+
+  //7
+  public int getSecond() {
+    return (int) TimeElapsed - (getHour() * 3600) - (getMinute() * 60);
+  }
+
+  //8
+  public long getSeconds() {
+    return TimeElapsed;
+  }
+
+  public int compareTo(Time obj) {
+    return (int)(TimeElapsed - ((Time) obj).TimeElapsed);
+  }
+
+  public Time clone() {
+    Time Time2 = new Time();
+    Time2.TimeElapsed = TimeElapsed;
+    return Time2;
+  }
+
+  public String toString() {
+    return String.format("%d hours %d minutes %d seconds", getHour(), getMinute(), getSecond());
+  }
+
+  public boolean equals(Time T) {
+    return T.TimeElapsed == TimeElapsed;
+  }
+}

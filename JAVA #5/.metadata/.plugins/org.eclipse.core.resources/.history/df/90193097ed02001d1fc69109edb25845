@@ -1,0 +1,82 @@
+package application;
+
+import java.util.Scanner;
+class Temp {
+
+	public static final ArrayProcessor SumOfArray = array -> {
+		double sum = 0;
+		for (int i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
+		return sum;
+	};
+
+	public static final ArrayProcessor AvgOfArray = array -> {
+		double avg = 0;
+		avg = SumOfArray.apply(array) / array.length;
+		return avg;
+	};
+
+	public static final ArrayProcessor MaxValue = array -> {
+		double max = array[0];
+		for (int i = 0; i < array.length; i++) {
+			if (max < array[i])
+			{
+				max = array[i];
+			}
+		}
+		return max;
+	};
+	
+	public static final ArrayProcessor MinValue = array -> {
+		double min = array[0];
+		for (int i = 0; i < array.length; i++) {
+			if (min > array[i])
+			{
+				min = array[i];
+			}
+		}
+		return min;
+	};
+
+	public static ArrayProcessor counter(double value) {
+		return array -> {
+			int count = 0;
+			for (int i = 0; i < array.length; i++) {
+				if (array[i] == value)
+				{
+					count++;
+				}
+			}
+			return count;
+		};
+	}
+	
+public static void main(String[] args) {
+		Scanner input= new Scanner(System.in);
+        
+        double[] arr1 = {1,1,1,1,12,2,2,2,3,3,,4,5,6,7,8,9,0,1.1,345,12,14,15};
+        
+        System.out.print("Array values: ");        
+        for(int i=0; i< arr1.length; i++) {        	
+        	System.out.print(arr1[i] + " ");
+        }
+
+        System.out.println("Sum of values	: " + String.format("%7.2f", SumOfArray.apply(arr1)));
+        System.out.println("Average value in array	: " + String.format("%7.2f", AvgOfArray.apply(arr1)));
+        System.out.println("Minimum value in array 	: " + String.format("%7.2f", MinValue.apply(arr1)));
+        System.out.println("Maximum value in array 	: " + String.format("%7.2f", MaxValue.apply(arr1)));
+        System.out.println();
+        
+        System.out.print("Enter value to count occurences in array : ");
+        double count = 0;
+        count = input.nextDouble();
+        System.out.println("Count of " + count +" in list	: " + counter(count).apply(arr1) );
+        
+        System.out.print("Enter value to count occurences in array : ");
+        double count1 = 0;
+        count1 = input.nextDouble();
+        System.out.println("Count of " + count1 +" in list	: " + counter(count1).apply(arr1) );
+        
+    }
+}

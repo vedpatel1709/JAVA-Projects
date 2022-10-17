@@ -1,0 +1,15 @@
+import java.io.*;    
+public class TestClass {
+     public static void main(String[] args) throws IOException {
+         try{
+        	 BufferedReader bf = new BufferedReader(new FileReader("in.txt"));
+             BufferedWriter bw = new BufferedWriter(new FileWriter("Buff.txt"));
+        String line;
+        while((line = bf.readLine()) != null) {
+              bw.write(line);
+                    bw.newLine();
+              }
+                bw.flush();
+                } catch(FileNotFoundException fnfe){                         }
+           }
+}

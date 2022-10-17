@@ -1,0 +1,69 @@
+package work;
+
+import java.util.Scanner;
+
+public class Banks {
+
+	public static void main(String[] args) {
+
+		Scanner Input = new Scanner(System.in);	
+		System.out.print("Number of banks: ");
+		int BanksCount = Input.nextInt();
+		int [] Banks = new int [BanksCount];
+		
+		double[] BankBalances = new double[BanksCount];
+		double[][] BankLoan = new double[BanksCount][BanksCount];
+		
+		System.out.print("Minimum asset of MaxLimit: ");
+		double MaxLimit = Input.nextDouble();
+		
+		for (int i = 0; i < Banks.length; i++) {
+			
+			System.out.println("For Bank # " + i);
+			System.out.print("\tBalance: ");
+			BankBalances[i] = Input.nextDouble();
+
+			System.out.print("\tNumber of banks BankLoaned: ");
+			int numbOfBorrowers = Input.nextInt();
+			for (int j = 0; j < numbOfBorrowers; j++) {
+
+				System.out.print("\t\tBank ID who gets the BankLoan: ");
+				int m = Input.nextInt();
+
+				System.out.print("\t\tBankLoaned Amount: ");
+				BankLoan[i][m]= Input.nextDouble();
+			}			
+		}
+		
+		double[] asset = new double[BanksCount];		
+		boolean[] isSafe = new boolean[BanksCount];
+		for(int i = 0; i < BanksCount; i++) {
+			isSafe[i] = true;
+		}
+
+		System.out.print("\nUnsafe banks are ");
+		boolean newNotSafeFound = true;
+		while(newNotSafeFound) {
+			newNotSafeFound = false;
+				
+			for (int i = 0; i < Banks.length; i++) {				
+				asset[i] = BankBalances[i];
+
+				for (int j = 0; j < Banks.length; j++) { 
+					
+					asset[i] += BankLoan[i][j];
+				}
+					
+				if(isSafe[i] && asset[i] < MaxLimit) {
+					isSafe[i] = false;
+					newNotSafeFound = true;
+					System.out.print("Bank " + i + " ");
+								
+					for(int m = 0; m < Banks.length; m++) {
+						BankLoan[m][i] = 0;
+					}						
+				}				
+			}
+		}			
+	}		
+}

@@ -1,0 +1,24 @@
+/**********************************************
+Workshop 8
+Course JAC444 NEE- 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: vedPatel
+Date: 07/27/2022
+**********************************************/
+
+What I learn from the workshop:
+
+For the first time ever, I had the opportunity to work with Java threads in this workshop. I have noticed that the syntax differs a lot from C++, sometimes you are given the option to override the run function, and other times you are given the option to use the executorService. Based on the results of task 1, multithreading can greatly enhance the performance of a program, however, when it is not implemented properly, it can become buggy.
+
+The instructions on how to run code:
+
+1)	Open Eclipse IDE and select create a new Java project
+2)	Create a project named "workshop8". 
+3)	In the src (source) file add the package called "work".
+4)	Right-click the "work" package and new classes.
+5)	Start implementing the code. Once you are done, click on the "Run" button on the top and select "Run" to run the code or you can simply press "Ctrl + F11" to run the code.
+6)	After running the code, you will get output in the console.

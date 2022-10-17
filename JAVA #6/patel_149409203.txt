@@ -1,0 +1,29 @@
+/**********************************************
+Workshop 6
+Course JAC444 NEE- 4
+Last Name: Patel
+First Name: Ved
+ID: 149409203
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature: vedPatel
+Date: 07/08/2022
+**********************************************/
+
+
+What I learn from the workshop:
+This workshop mainly focused on concepts of JavaFx(GUI), Lambda expressions, functional Interface and arrays.
+Task1 of workshop focused on JavaFx(GUI) while Task2 had focused more on Lambda expressions.
+While working with Task1 I learned how to create textfield to get text input from user. In addition, I also learned how to use GridPane to create grid and also learned to adjust size of grid.
+I had added many text fields, labes, and buttons in it.
+In task2, I learned lambda expressions. I had created 5 methods to find max, min, avg, sum and count from given arrayList. Given task2 was the very easy to implement.
+Overall, the given workshop was fun and full of learning.
+
+The instructions on how to run code:
+1)	Open Eclipse IDE and select create a new Java project
+2)  	Create new project named "ws6" and select JavaFX option.
+3)	Include .Jar files given by professor in .zip file to run javaFx module.
+4)	In the src (source) file add two packages named "Task1" and "Task2".
+5)	Right-click the packages and add new classes.
+6)	Start implementing the code. Once you are done, click on the "Run" button on the top and select "Run" to run the code or you can simply press "Ctrl + F11" to run the code.
+7)	After running the code, you will get your expected output.
